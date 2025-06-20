@@ -1,39 +1,33 @@
-:root {
-  --bg: #f9f7f5;
-  --accent: #c998fa;
-  --text: #222;
-  --link: #3333aa;
-  --font: 'Inter', sans-serif;
-}
-
+/* General reset */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+/* Pastel textile-inspired palette */
+:root {
+  --bg: #fff8f3;
+  --primary: #c998fa;
+  --secondary: #fbc8d9;
+  --accent: #9ee6cf;
+  --text: #333;
+  --highlight: #fce38a;
 }
 
 body {
-  font-family: var(--font);
+  font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  padding: 0;
 }
 
+/* Header */
 header {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
-  padding: 3rem 1rem;
+  padding: 2rem;
   text-align: center;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1.2rem;
 }
 
 nav {
@@ -41,41 +35,74 @@ nav {
 }
 
 nav a {
-  margin: 0 1rem;
   color: white;
   text-decoration: none;
-  font-weight: 600;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav a:hover,
+nav a.active {
+  background-color: var(--highlight);
+  color: var(--text);
 }
 
+/* Main section */
 main {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Bio */
+.bio-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.bio-photo {
+  width: 200px;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* Lists */
+.project-list,
+.publication-list {
+  list-style-type: square;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.project-list li,
+.publication-list li {
+  margin-bottom: 0.75rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  padding: 1.5rem;
-  background-color: #eee;
-  font-size: 0.9rem;
-  margin-top: 2rem;
-}
-
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.3s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding: 2rem;
+  background-color: var(--secondary);
+  color: var(--text);
+  margin-top: 4rem;
 }
