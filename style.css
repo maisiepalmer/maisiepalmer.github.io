@@ -1,0 +1,91 @@
+:root {
+  --primary-color: #c998fa;
+  --accent-color: #333;
+  --bg-light: #f9f9f9;
+  --text-light: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+nav {
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.grid-item {
+  flex: 1 1 calc(50% - 1rem);
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer {
+  background-color: #eee;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .grid-item {
+    flex: 1 1 100%;
+  }
+}
