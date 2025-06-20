@@ -1,108 +1,140 @@
-/* General reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Pastel textile-inspired palette */
-:root {
-  --bg: #fff8f3;
-  --primary: #c998fa;
-  --secondary: #fbc8d9;
-  --accent: #9ee6cf;
-  --text: #333;
-  --highlight: #fce38a;
-}
+/* style.css */
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  background-color: #fff7f9;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header */
 header {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 2rem;
-  text-align: center;
+  background-color: #f6d8e7;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eec4db;
 }
 
-nav {
-  margin-top: 1rem;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #4a2c5f;
 }
 
 nav a {
-  color: white;
+  margin-left: 1rem;
   text-decoration: none;
-  margin: 0 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease;
+  color: #4a2c5f;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
-  background-color: var(--highlight);
-  color: var(--text);
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #4a2c5f;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
-/* Main section */
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 main {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
+  padding: 2rem;
 }
 
-/* Gallery */
+h2 {
+  color: #802e5c;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
 
 .gallery-item img {
   width: 100%;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  object-fit: cover;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
-/* Bio */
-.bio-content {
+.gallery-item img:hover {
+  transform: scale(1.03);
+}
+
+.bio {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
-.bio-photo {
-  width: 200px;
-  border-radius: 1rem;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+.portrait {
+  max-width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Lists */
-.project-list,
-.publication-list {
-  list-style-type: square;
-  padding-left: 1.5rem;
-  margin-top: 1rem;
+.project {
+  margin-bottom: 2rem;
+  background-color: #fce4ec;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.project-list li,
-.publication-list li {
-  margin-bottom: 0.75rem;
+.publications li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
-/* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
-  background-color: var(--secondary);
-  color: var(--text);
-  margin-top: 4rem;
+  padding: 1rem;
+  background-color: #f6d8e7;
+  color: #4a2c5f;
+  border-top: 2px solid #eec4db;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .bio {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
