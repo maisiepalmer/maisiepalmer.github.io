@@ -2,25 +2,26 @@
 body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
-  background: #fff;
+  background: #fafafa;
   color: #111;
+  line-height: 1.6;
 }
 
 header {
   padding: 2em 1em;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eaeaea;
 }
 
 h1 {
   font-size: 2em;
-  margin: 0;
+  margin-bottom: 0.2em;
 }
 
 nav a {
   margin: 0 1em;
   text-decoration: none;
-  color: #666;
+  color: #333;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -29,16 +30,23 @@ nav a:hover {
   color: #000;
 }
 
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2em 1em;
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5em;
-  padding: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2em;
+  padding: 2em 0;
 }
 
 .gallery-item {
   overflow: hidden;
   position: relative;
+  text-align: center;
 }
 
 .gallery-item img {
@@ -53,14 +61,13 @@ nav a:hover {
 
 .caption {
   margin-top: 0.5em;
-  font-size: 0.9em;
+  font-size: 0.95em;
   color: #555;
-  text-align: center;
 }
 
 footer {
   text-align: center;
   padding: 2em 1em;
-  font-size: 0.8em;
+  font-size: 0.85em;
   color: #999;
 }
