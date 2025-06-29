@@ -103,3 +103,20 @@ footer {
   transform: translateY(0);
   transition: all 0.6s ease-out;
 }
+
+.photo-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+.photo-row img {
+  width: 30%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
