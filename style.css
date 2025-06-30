@@ -54,6 +54,15 @@ main {
   justify-content: center;
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+}
+
 .gallery-item {
   position: relative;
   overflow: hidden;
