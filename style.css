@@ -54,6 +54,11 @@ main {
   justify-content: center;
 }
 
+body, main, p {
+  color: #000;
+}
+
+
 .gallery-item {
   position: relative;
   overflow: hidden;
