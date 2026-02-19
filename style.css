@@ -1,127 +1,180 @@
-/* Base styling */
-body {
+/* ===== RESET ===== */
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
   background: #fdfdfc;
   color: #111;
-  line-height: 1.6;
   overflow-x: hidden;
-  transition: background 0.5s ease;
+  transition: opacity 0.4s ease;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== HEADER ===== */
 
 header {
-  padding: 2em 1em;
-  text-align: center;
-  border-bottom: 1px solid #eee;
-  animation: fadeIn 1.2s ease forwards;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+  mix-blend-mode: difference;
 }
 
-h1 {
-  font-size: 3em;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: -0.02em;
-  transition: color 0.4s ease;
-}
-
-h1:hover {
-  color: #555;
-}
-
-nav {
-  margin-top: 1em;
+header h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  color: white;
 }
 
 nav a {
-  margin: 0 1.2em;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  color: white;
 }
 
-nav a:hover {
-  opacity: 0.7;
-}
+/* ===== STAGE (Layered Layout) ===== */
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3em 2em;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5em;
-  justify-content: center;
-}
-
-body, main, p {
-  color: #000;
-}
-
-
-.gallery-item {
+.stage {
   position: relative;
+  height: 100vh;
+  width: 100%;
   overflow: hidden;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.gallery-item img {
+.layer {
+  position: absolute;
+}
+
+.layer img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  transition: transform 0.4s ease;
+  display: block;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.03);
+/* background hero */
+.layer-hero {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.caption {
-  margin-top: 0.5em;
-  font-size: 0.95em;
-  color: #555;
-  text-align: center;
+/* floating layers */
+.layer-1 {
+  top: 15%;
+  left: 8%;
+  width: 300px;
+  z-index: 3;
+  animation: float 6s ease-in-out infinite;
 }
+
+.layer-2 {
+  bottom: 5%;
+  right: 10%;
+  width: 400px;
+  z-index: 2;
+  opacity: 0.85;
+  animation: floatAlt 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatAlt {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== PROJECT LINK OVERLAY ===== */
+
+.project-overlay {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  z-index: 5;
+  color: white;
+}
+
+.project-overlay h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.project-overlay a {
+  font-size: 1rem;
+  border-bottom: 2px solid white;
+}
+
+/* ===== CONTENT PAGES ===== */
+
+.content {
+  max-width: 900px;
+  margin: 150px auto 80px auto;
+  padding: 0 2rem;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.content p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== COLLAGE SECTION ===== */
+
+.collage {
+  position: relative;
+  margin-top: 4rem;
+  min-height: 500px;
+}
+
+.collage img {
+  position: absolute;
+  max-width: 300px;
+  border-radius: 6px;
+}
+
+.collage .img-1 { top: 0; left: 0; }
+.collage .img-2 { top: 120px; right: 0; }
+.collage .img-3 { bottom: 0; left: 30%; }
+
+/* ===== PUBLICATIONS ===== */
+
+.publications li {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
 
 footer {
   text-align: center;
-  padding: 3em 1em;
-  font-size: 0.85em;
-  color: #999;
+  padding: 4rem 1rem;
+  font-size: 0.85rem;
+  color: #777;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.slide-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.6s ease-out;
-}
-
-.photo-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.photo-row img {
-  width: 28%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+/* ===== RESPONSIVE ====*
