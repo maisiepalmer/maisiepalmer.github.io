@@ -88,7 +88,7 @@ nav a:hover { color: var(--white); }
   position: absolute;
   top: 14%;
   left: 8%;
-  width: 200px;
+  width: 400px;
   z-index: 3;
   filter: drop-shadow(0 0 40px rgba(200,184,154,0.25));
   animation: float 6s ease-in-out infinite;
@@ -100,7 +100,7 @@ nav a:hover { color: var(--white); }
   position: absolute;
   bottom: 0;
   right: 6%;
-  width: 340px;
+  width: 170px;
   z-index: 2;
   mix-blend-mode: screen;
   opacity: 0.8;
