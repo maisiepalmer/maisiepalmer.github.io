@@ -399,3 +399,82 @@ footer {
   .glove { width: 130px; top: 10%; }
   .outline { width: 200px; }
 }
+
+/* ===== PROJECT CARDS (homepage) ===== */
+.project-card {
+  position: absolute;
+  z-index: 10;
+  display: block;
+  text-decoration: none;
+  width: 220px;
+  /* photograph look */
+  background: #1a1410;
+  padding: 6px 6px 40px 6px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.8) brightness(0.9);
+  transition: filter 0.25s ease;
+  color: transparent; /* hide broken img */
+}
+
+.project-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.85), 0 4px 16px rgba(0,0,0,0.6);
+  z-index: 20;
+}
+
+.project-card:hover img {
+  filter: saturate(1) brightness(1);
+}
+
+.card-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-top: 8px;
+}
+
+.card-year {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--white);
+  text-align: center;
+}
+
+/* individual card positions & rotations */
+.card-fibrephonic {
+  bottom: 12%;
+  left: 8%;
+  transform: rotate(-3deg);
+}
+
+.card-fibrephonic:hover {
+  transform: rotate(-1deg) translateY(-6px) scale(1.03);
+}
+
+.card-squishy {
+  bottom: 8%;
+  left: 30%;
+  transform: rotate(2.5deg);
+}
+
+.card-squishy:hover {
+  transform: rotate(1deg) translateY(-6px) scale(1.03);
+}
